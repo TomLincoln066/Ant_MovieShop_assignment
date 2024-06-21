@@ -23,6 +23,12 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult TopMovies()
+        {
+            return View("Privacy");//overload - you could specify which cshtml to direct to via parameters.
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
