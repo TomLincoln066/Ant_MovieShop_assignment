@@ -1,3 +1,4 @@
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using MovieShopMVC.Models;
 using System.Diagnostics;
@@ -6,16 +7,21 @@ namespace MovieShopMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
-            return View();
+
+            //our controllers are very thin/lean
+            //most of your logic should come from other dependencies, services
+            //we create
+            //
+
+            var movieService = new MovieService();
+
+            //model data
+            var movies= movieService.GetTop30GrossingMovies();
+
+            return View(movies);
         }
 
         public IActionResult Privacy()
