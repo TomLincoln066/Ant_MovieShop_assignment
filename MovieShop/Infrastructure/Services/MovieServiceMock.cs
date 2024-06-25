@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Services
 {
-    public class MovieService : IMovieService
+    public class MovieServiceMock : IMovieService
     {
         public List<MovieCardModel> GetTop30GrossingMovies()
         {
-            //call MovieRepository(call the database with Dapper or EF core)
             var movies = new List<MovieCardModel>()
             {
                 new MovieCardModel {Id=1,PosterUrl="", Title="Inception"},
@@ -22,5 +21,8 @@ namespace Infrastructure.Services
             };
             return movies;
         }
+
+
     }
 }
+
