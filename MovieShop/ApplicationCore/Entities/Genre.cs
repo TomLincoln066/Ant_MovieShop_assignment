@@ -5,11 +5,11 @@ namespace ApplicationCore.Entities
 {
     public class Genre
     {
-        public Genre()
-        {
-            Public int Id { get; set; }
-            Public string Name { get; set; }
-        }
+
+            public int Id { get; set; }
+            public string Name { get; set; }
+
+        
     }
 
 
