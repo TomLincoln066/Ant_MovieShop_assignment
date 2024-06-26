@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MovieShopMVC.Controllers 
 {
     public class MoviesController : Controller
+    { 
 
 
 
@@ -17,7 +18,7 @@ namespace MovieShopMVC.Controllers
         public IActionResult Index()
         {
             
-            return view();
+            return View();
 
         }
     }
