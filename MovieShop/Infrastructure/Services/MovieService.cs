@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Contracts.Services;
+﻿using ApplicationCore.Contracts.Repositories;
+using ApplicationCore.Contracts.Services;
 using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,33 @@ namespace Infrastructure.Services
 {
     public class MovieService : IMovieService
     {
+
+        private readonly IMovieRepository _movieRepository;
+
+        public MovieService(IMovieRepository movieRepository)
+        {
+
+            _movieRepository = movieRepository;
+        }
+
         public List<MovieCardModel> GetTop30GrossingMovies()
         {
-            //call MovieRepository(call the database with Dapper or EF core)
-            var movies = new List<MovieCardModel>()
-            {
-                new MovieCardModel {Id=1,PosterUrl="", Title="Inception"},
-                new MovieCardModel {Id=2,PosterUrl="", Title="Interstellar"},
-                new MovieCardModel {Id=3,PosterUrl="", Title="The Dark Knight"}
+            var movies = _movieRepository.GetTop30RevenueMovies();
 
-            };
-            return movies;
+            var movieCards = new List<MovieCardModel>();
+
+            // mapping entities data in to models data
+            foreach(var movie in movies)
+            {
+                movieCards.Add(new MovieCardModel
+                {
+                    Id = movie.Id,PosterUrl = movie.PosterUrl, Title = movie.Title
+                });
+                 
+            }
+
+            return movieCards;
+
         }
     }
 }

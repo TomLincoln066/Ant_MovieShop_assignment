@@ -1,5 +1,7 @@
+using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 //builder.Services.AddScoped<IMovieService, MovieServiceMock>();
 
