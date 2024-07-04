@@ -12,6 +12,6 @@ namespace ApplicationCore.Contracts.Services
         //have all the business logic methods relating to movies
         List<MovieCardModel> GetTop30GrossingMovies();
 
-        GetMovieDatails(int id);
+        //GetMovieDatails(int id);
     }
 }

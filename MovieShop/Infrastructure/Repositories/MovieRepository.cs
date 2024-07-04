@@ -31,6 +31,7 @@ namespace Infrastructure.Repositories
             //we need to use Include method
             var movieDetails = _dbContext.Movies.Include(m => m.Genres).ThenInclude(m => m.Genre).Include(m => m.Trailers)
                 .FirstOrDefault(m => m.Id == id);
+            return movieDetails;
         }
 
 
