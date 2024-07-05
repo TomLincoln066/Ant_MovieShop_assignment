@@ -17,7 +17,7 @@ namespace ApplicationCore.Models
 
         public decimal? Revenue { get; set; }
 
-        public string? ImbdUrl { get; set; }
+        public string? ImdbUrl { get; set; }
         public string? TmdbUrl { get; set; }
         public string? PosterUrl { get; set; }
         public string? BackDropUrl { get; set; }
