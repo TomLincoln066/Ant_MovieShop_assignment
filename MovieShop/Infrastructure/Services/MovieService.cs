@@ -20,6 +20,11 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
+        public MovieDetailsModel GetMovieDatails(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<MovieCardModel> GetTop30GrossingMovies()
         {
             var movies = _movieRepository.GetTop30RevenueMovies();

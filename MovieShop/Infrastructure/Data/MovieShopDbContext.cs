@@ -38,7 +38,8 @@ namespace Infrastructure.Data
         private void ConfigureMovieCast(EntityTypeBuilder<MovieCast> modelBuilder)
         {
             modelBuilder.ToTable("MovieCast");
-            modelBuilder.HasKey(mc => new {mc.CastId, mc.MovieId, mc.Character });
+            //modelBuilder.HasKey(mc => new {mc.CastId, mc.MovieId, mc.Character });
+            modelBuilder.HasKey(mc => new { mc.CastId, mc.MovieId, mc.Character });
 
             modelBuilder.HasOne(mc => mc.Movie).WithMany(mc => mc.MovieCasts).HasForeignKey(mc => mc.MovieId);
             modelBuilder.HasOne(mc => mc.Cast).WithMany(mc => mc.MovieCasts).HasForeignKey(mc => mc.CastId);
@@ -57,9 +58,14 @@ namespace Infrastructure.Data
         private void ConfigureMovieGenre(EntityTypeBuilder<MovieGenre> modelBuilder)
         {
             modelBuilder.ToTable("MovieGenre");
+            //modelBuilder.HasKey(mg => new { mg.MovieId, mg.GenreId });
             modelBuilder.HasKey(mg => new { mg.MovieId, mg.GenreId });
+
             modelBuilder.HasOne(m => m.Movie).WithMany(m => m.Genres).HasForeignKey(m => m.MovieId);
             modelBuilder.HasOne(m => m.Genre).WithMany(m => m.Movies).HasForeignKey(m => m.GenreId);
+
+            //modelBuilder.HasOne(mg => mg.Movie).WithMany(m => m.Genres).HasForeignKey(mg => mg.MovieId);
+            //modelBuilder.HasOne(mg => mg.Genre).WithMany(g => g.Movies).HasForeignKey(mg => mg.GenreId);
         }
 
         private void ConfigureTrailer(EntityTypeBuilder<Trailer> builder)
@@ -87,7 +93,7 @@ namespace Infrastructure.Data
                 builder.Property(m => m.Title).HasMaxLength(256);
                 builder.Property(m => m.Overview).HasMaxLength(4096);
                 builder.Property(m => m.Tagline).HasMaxLength(512);
-                builder.Property(m => m.ImbdUrl).HasMaxLength(2084);
+                builder.Property(m => m.ImdbUrl).HasMaxLength(2084);
                 builder.Property(m => m.TmdbUrl).HasMaxLength(2084);
                 builder.Property(m => m.PosterUrl).HasMaxLength(2084);
                 builder.Property(m => m.BackDropUrl).HasMaxLength(2084);
