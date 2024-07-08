@@ -15,11 +15,11 @@ namespace MovieShopMVC.Controllers
             _movieService = movieService;
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            // Movie Service with Details
+            // Movie Service with Details  
             // pass the movie details data to view
-            var moviedetails = _movieService.GetMovieDatails(id);
+            var moviedetails = await _movieService.GetMovieDatails(id);
             return View(moviedetails);
         }
     }
