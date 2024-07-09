@@ -24,6 +24,8 @@ namespace Infrastructure.Data
 
         public DbSet<MovieCast> MovieCasts { get; set; }
 
+        public DbSet<MovieGenre> MovieGenres { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

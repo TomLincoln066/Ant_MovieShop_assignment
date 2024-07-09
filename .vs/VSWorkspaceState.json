@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MovieShop",
+    "\\MovieShop\\ApplicationCore",
+    "\\MovieShop\\ApplicationCore\\Entities",
+    "\\MovieShop\\Infrastructure",
+    "\\MovieShop\\Infrastructure\\Services",
+    "\\MovieShop\\MovieShopMVC",
+    "\\MovieShop\\MovieShopMVC\\Controllers"
+  ],
+  "PreviewInSolutionExplorer": false
+}
