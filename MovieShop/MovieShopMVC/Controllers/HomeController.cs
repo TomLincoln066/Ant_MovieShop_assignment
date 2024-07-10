@@ -22,7 +22,7 @@ namespace MovieShopMVC.Controllers
 
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             //our controllers are very thin/lean
@@ -33,7 +33,7 @@ namespace MovieShopMVC.Controllers
             //var movieService = new MovieService();
 
             //model data
-            var movies= _movieService.GetTop30GrossingMovies();
+            var movies= await _movieService.GetTop30GrossingMovies();
 
             return View(movies);
         }
